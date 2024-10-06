@@ -2,135 +2,138 @@
   --primary-color: #31c27c;
 }
 body {
-  margin: 0;
-  background: #f5f5f5;
-  font-family: Microsoft Yahei;
-  font-size: 14px;
+  margin: 0; /*外边矩为0*/
+  background: #f5f5f5; /*背景色*/
+  font-family: Microsoft Yahei; /* 字体 */
+  font-size: 14px; /*字体大小*/
   /* min-width: 1000px; */
 }
 a {
-  text-decoration: none;
-  color: #000;
+  text-decoration: none; /*超链接下划线取消*/
+  color: #000; /*超链接颜色*/
 }
 header {
-  height: 90px;
-  background: white;
-  display: flex;
-  align-items: center;
+  height: 90px; /*标题栏高度*/
+  background: white; /*标题栏背景色*/
+  display: flex; /*flex布局*/
+  align-items: center; /*居中显示*/
 }
 .header-inner, main {
   /* width: 1200px; */
-  padding: 20px;
-  margin: auto;
+  padding: 20px; /* 标题栏图片内边距 */
+  margin: auto; /* 外边距自动 */
 }
 .tag-list {
-  margin-top: 50px;
-  margin-bottom: 15px;
+  margin-top: 50px; /* 选择栏顶部外边距 */
+  margin-bottom: 15px; /* 选择栏底部外边距 */
 }
-.tag-item {
-  display: inline-block;
-  padding: 0 8px;
-  margin-right: 24px;
-  line-height: 26px;
-  color: #000;
-  text-decoration: none;
+.tag-item { /* 地区选择 */
+  display: inline-block;/* 行内盒子 */
+  padding: 0 8px; /* 内边距 上下0 左右8 */
+  margin-right: 24px; /* 右外边距24 */
+  line-height: 26px; /* 行高26 */
+  color: #000; /* 颜色 */
+  text-decoration: none; /* 取消下划线 */
 }
-.tag-active {
-  background: var(--primary-color);
-  color: white;
+.tag-active { /* 选中的地区 */
+  background: var(--primary-color); /* 背景变色 */
+  color: white; /* 字体变白 */
 }
-.tag-item:not(.tag-active):hover {
-  color: var(--primary-color);
+.tag-item:not(.tag-active):hover { /* 未选中的地区 */
+  color: var(--primary-color); /* 字体颜色 */
 }
-.nowrap {
-  white-space: nowrap;
-  overflow: hidden;
-  text-overflow: ellipsis;
+.nowrap { /* 歌曲信息 */
+  white-space: nowrap; /* 空格不换行 */
+  overflow: hidden; /* 隐藏溢出信息 */
+  text-overflow: ellipsis; /* 溢出信息显示为... */
 }
-.playlist {
-  display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(200px,1fr));
-  gap: 45px 15px;
-  margin-bottom: 45px;
+.playlist { /* 歌曲布局 */
+  display: grid; /* 网格布局 */
+  grid-template-columns: repeat(auto-fill, minmax(200px,1fr)); /* 每个最小200，最大等分 重复至占满宽度 */
+  gap: 45px 15px; /* 网格行与列间隙 */
+  margin-bottom: 45px; /* 下外边距45 */
 }
-.cover-wrap {
-  display: flex;
-  position: relative;
-  overflow: hidden;
-  width: 100%;
-  margin-bottom: 15px;
-  align-items: center;
-  justify-content: center;
-  cursor: pointer;
+.cover-wrap { /* 歌曲图片超链接 */
+  display: flex; /* 弹性布局 */
+  position: relative; /* 相对定位 */
+  overflow: hidden; /* 隐藏溢出信息 */
+  width: 100%; /* 宽度 */
+  margin-bottom: 15px; /* 下外边距15 */
+  align-items: center; /* 居中显示 */
+  justify-content: center; /* 主轴居中对齐 */
+  cursor: pointer; /* 鼠标指针变手指 */
 }
-.cover-img {
-  width: 100%;
-  transition: all 0.75s;
+.cover-img { /* 歌曲图片 */
+  width: 100%; /* 图片宽度 */
+  transition: all 0.75s; /* 过渡动画四周扩大 0.75s */
 }
-.cover-mask {
-  position: absolute;
+.cover-mask { /* 遮罩 */
+  position: absolute; /* 绝对定位 */
   left: 0;
   top: 0;
   right: 0;
   bottom: 0;
-  background: #000;
-  opacity: 0;
-  transition: all 0.5s;
+  /* 相对歌曲图片居中显示 */
+  background: #000; /* 遮罩颜色 */
+  opacity: 0; /* 初始透明 */
+  transition: all 0.5s; /* 过渡动画四周扩大 0.5s */
 }
-.cover-play {
-  position: absolute;
+.cover-play { /* 显示播放图标 */
+  position: absolute; /* 绝对定位 */
   left: 50%;
   top: 50%;
+  /* 相对歌曲图片居中显示 */
   margin-left: -35px;
   margin-top: -35px;
-  opacity: 0;
+  /* 左右外边距 */
+  opacity: 0; /* 初始透明 */
   transform: scale(0.7);
   transition: all 0.5s;
 }
-.cover-wrap:hover .cover-mask {
-  opacity: 0.2;
+.cover-wrap:hover .cover-mask { 
+  opacity: 0.2; /*遮罩不透明度改变*/
 }
 .cover-wrap:hover .cover-play {
-  opacity: 1;
-  transform: scale(1);
+  opacity: 1; /*遮罩不透明度改变*/
+  transform: scale(1); /*缩放变换*/
 }
 .cover-wrap:hover .cover-img {
-  transform: scale(1.07);
+  transform: scale(1.07); /*缩放变换*/
 }
 .album-title:hover {
-  color: var(--primary-color);
+  color: var(--primary-color); /* 歌曲名字变色 */
 }
 .album-author {
-  color: #999;
-  line-height: 1.6;
+  color: #999; /* 歌曲作者字体颜色 */
+  line-height: 1.6; /* 高度 */
 }
 .album-author:hover {
-  color: var(--primary-color);
+  color: var(--primary-color); /* 歌曲作者字体变色 */
 }
 .album-time {
-  color: #999;
+  color: #999; /* 歌曲时间字体颜色 */
 }
-.page {
-  display: flex;
-  align-items: center;
-  justify-content: center;
+.page { /* 页数选择 */
+  display: flex; /* 弹性布局 */
+  align-items: center; /* 居中 */
+  justify-content: center; /* 主轴居中对齐 */
 }
-.page-item {
-  display: inline-block;
-  color: #a2a2a2;
-  line-height: 50px;
-  padding: 0 20px;
-  margin: 10px;
-  font-size: 16px;
+.page-item { /* 页数 */
+  display: inline-block; /* 行内盒子 */
+  color: #a2a2a2; /* 颜色 */
+  line-height: 50px; /* 高度 */
+  padding: 0 20px; /* 上下0 左右20 */
+  margin: 10px; /* 外边距10 */
+  font-size: 16px; /* 字体大小 */
 }
-.page-current, .page-item:not(.page-more):hover {
-  background: var(--primary-color);
-  color: white;
+.page-current, .page-item:not(.page-more):hover { /* 所在页数和所选页数 */
+  background: var(--primary-color); /* 背景变色 */
+  color: white; /* 字体变白 */
 }
-footer {
-  margin-top: 60px;
-  background: #333;
-  height: 200px;
+footer { /* 底部空白 */
+  margin-top: 60px; /* 上边距60 */
+  background: #333; /* 背景色 */
+  height: 200px; /* 高度 */
 }
 
 
